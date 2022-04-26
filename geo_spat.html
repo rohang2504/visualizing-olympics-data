@@ -114,7 +114,7 @@
         // loading data
         d3.queue()
             .defer(d3.json, "http://enjalot.github.io/wwsd/data/world/world-110m.geojson")
-            .defer(d3.csv, "/medals.csv", function(d) { data.set(d.code, +d.medal); })
+            .defer(d3.csv, "https://raw.githubusercontent.com/rohang2504/DV_omnino/main/medals.csv", function(d) { data.set(d.code, +d.medal); })
             .await(ready);
 
         function ready(error, topo) {
