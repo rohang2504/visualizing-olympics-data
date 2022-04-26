@@ -1,1 +1,1 @@
-Data Visualization Main project by Rohan, Abhijot & Amogh.
+Data Visualization project by Rohan, Abhijot & Amogh.
