@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="https://github.com/rohang2504/DV_MainProject/raw/main/images/olympics_s.png">
+  <title>Geo Spatial</title>
     <style>
         body {
             margin: 0;
@@ -10,7 +18,7 @@
         h1 {
             text-align: center;
         }
-        .nav-bar ul {
+        /* .nav-bar ul {
             list-style: none;
             background-color: rgb(2, 2, 85);
             text-align: center;
@@ -35,7 +43,69 @@
             color: #000;
             font-weight: bold;
             transition: 0.7s;
-        }
+        } */
+        .navbar{
+    width:100%;
+    background:#333;
+    overflow:auto;
+    font-family:'Lato', sans-serif;
+}
+.navbar ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+    line-height: 35px;
+    color: black;
+}
+.navbar ul li{
+    float:left;
+}
+.navbar ul li a{
+    text-decoration:none;
+    width:150px;
+    display: block;
+    text-align:center;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color:#fff;
+}
+.navbar ul li a:hover{
+    background:rgba(58, 6, 201, 0.527);
+    border-radius: 10px;
+    transform: translateZ(0);
+    transition: all .12s,box-shadow .8s ease-in;
+}
+.navbar ul li a.active{
+    background:rgba(0, 0, 0, 0.479);
+    border-radius: 10px;
+}
+.toggle-nav{
+    color:rgb(255, 255, 255);
+    text-decoration:none;
+    display: none;
+} 
+#header{
+        background-image: url('https://github.com/rohang2504/DV_MainProject/raw/main/images/olympics_hmain.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size:  contain;
+        color: #FFFFFF;
+        margin-bottom: -0.2cm;
+    }    
+    
+    .footer {
+        position: bottom;
+        left: 0;
+        bottom: 20mm;
+        width: 100%;
+        background-color: #333;
+        color: white;
+        text-align: center;
+  }
+  html { 
+  overflow-y: scroll; 
+}
         .countries {
             fill: none;
             stroke: #fff;
@@ -52,7 +122,7 @@
         }
         svg {
             position: fixed;
-            top: 30%;
+            top: 45%;
             left:50%;
             transform: translate(-50%, -30%);
         }
@@ -63,14 +133,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
 </head>
 <body>
-    <h1>Olympics Performance 1960-2016</h1>
+    <!-- <h1>Olympics Performance 1960-2016</h1>
     <div class="nav-bar">
         <ul>
             <li><a href="#">GeoSpatial</a></li>
             <li><a href="#">TornadoGraph</a></li>
             <li><a href="#">ScatterPlot</a></li>
         </ul>
-    </div>
+    </div> -->
+
+    <div id="header">
+        <div style="height: 35px; background-color: #000000c0"></div><h1 style="background-color:#000000c0 ; text-align: center ; font-family: 'Lato', sans-serif; margin: 0;"><a><img src="https://github.com/rohang2504/DV_MainProject/raw/main/images/olympics.png" width="60 height="60" alt=""></a> Olympics Performance 1960-2016</h1><div style="height: 40px; background-color: #000000c0"></div>
+      </div>
+      <!-- <div style="height: 15px; background-color: #0b6cfd3b"></div><h2 style="background-color:#0b6cfd3b ; text-align: center ; font-family: 'Lato', sans-serif; margin: 0;"><a><img src="https://github.com/rohang2504/DV_MainProject/raw/main/images/olympics.png" width="60 height="60" alt=""></a> Olympics Performance 1960-2016</h2><div style="height: 15px; background-color: #0b6cfd3b"></div> -->
+      <nav class="navbar sticky-top navbar-expand-sm" style="background-color: #0646a7;">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"><img src="https://github.com/rohang2504/DV_MainProject/raw/main/images/home1.png" width="27" height="25" alt=""></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="geo_spat.html">Geo Spatial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index_tornado.html">Tornado</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="scatter.html">Scatter</a>
+          </li>
+        </ul>
+      </nav>
+      <br>
+
+<!-- ****************************************************************************************************************************************************************************************** -->
     <svg width="1600" height="800"></svg>
     <script>
         // svg
