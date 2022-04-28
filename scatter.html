@@ -102,16 +102,16 @@
     </ul> -->
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link " href="index.html">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="geo_spatial.html">Medal Tally (Countries)</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index_tornado.html">Gender Performance Comparison</a>
+        <a class="nav-link" href="tornado.html">Gender Performance Comparison</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="scatter.html">GDP vs Medals Secured</a>
+        <a class="nav-link active" href="scatter.html">GDP vs Medals Secured</a>
       </li>
     </ul>
   </nav>
@@ -124,21 +124,21 @@
    <br> Abstract: This visualization is a scatter plot of the olympics medals won by the countries till now. </p>
 </div>
 
-<div class="topnav" id="topnavbar" style="width: 2100px;">
+<div class="topnav" id="topnavbar">
 
 
 
 </div>
 
-<div class="wrapper">
+<div class="wrapper" style="display: inline-block;">
 
-<div id="scatter-plot" class="view" style="width: 700px; position: absolute; left: 150px; ">
+    <div id="scatter-plot" class="view" style="width: 40%; float: left; padding-right: 20px;">
 
-</div>
+    </div>
 
 
-<div class="innerWrapper" style="position: absolute; right: 500px;">
-  <table id="matchTable">
+    <div class="innerWrapper" style=" float: right; width: 50%">
+    <table id="matchTable" style="text-align: right;">
         <thead>
         <tr>
             <th class="Team">Team</th>
@@ -153,14 +153,8 @@
         <tbody>
 
         </tbody>
-  </table>
-</div>
-
-<div>
-
-</div>
-
-
+    </table>
+    </div>
 </div>
 
 </body>
