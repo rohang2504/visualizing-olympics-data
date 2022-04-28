@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="../libs/d3.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+        <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
+        <script src="https://cdn.jsdelivr.net/npm/d3-geo-projection@4"></script>
+
+        <style>
+            #tooltip {
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                left: 0;
+                width: auto;
+                padding: 10px;
+                background: white;
+                font-family: sans-serif;
+                font-size: medium;
+                border-radius: 2px;
+                line-height: 1;
+            }
+            #container {
+                width: 90vw;
+                height: 80vh;
+            }
+            #canvas {
+                width: 90vw;
+                height: 80vh;
+                background-color: white;
+            }
+            path.path_geo {
+                stroke-width: .6px;
+                stroke: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <div id="container">
+            <svg id="canvas" viewBox="0 0 1000 800">
+
+            </svg>
+        </div>
+
+        <div id="tooltip"></div>
+
+        <script>
+            let svg = d3.select('svg');
+
+            // loading the sources
+            let medal_data = "../data/medals.csv";
+            let geojson = "../data/countries.geojson";
+
+            let projection = d3.geoPatterson()
+                                .scale(220)
+                                .translate([500, 500]);
+
+            Promise.all(
+                [
+                    d3.json(geojson),
+                    d3.csv(medal_data)],d3.autoType()).then(main)
+            function main(data) {
+                // console.log(data[0]);
+                // console.log(data[1]);
+                let geoJson = data[0].features;
+
+                let geo_gen = d3.geoPath().projection(projection);
+
+                // let olymp = d3.group(data[1], function(d){return d.code;});
+                let olymp = d3.group(data[1], function(d){
+                    return d.code;
+                });
+
+                //console.log(olymp.get('IND'));
+                
+                let medal_tal = d3.extent(data[1], function (d) {
+                    return +d.medal
+                });
+
+                medal_tal[0]=1
+                
+                let colorscheme = d3.schemeReds[6];
+                colorscheme.unshift("#eee");
+                let colorScale = d3.scaleThreshold()
+                    .domain([1,101, 801, 3001, 7001, 10001])
+                    .range(colorscheme);
+
+                // let colorScale = d3.scaleLog()
+                //                 .domain(medal_tal)
+                //                 .range(["white", "rgb(253, 75, 21)"])
+                //                 .interpolate(d3.interpolateCubehelix.gamma(2))
+                
+                let tooltip = d3.select("#tooltip");
+
+                let mapCanvas = svg.append('g')
+                mapCanvas.selectAll('path')
+                    .data(geoJson)
+                    .enter()
+                    .append('path')
+                    .attr("class", "path_geo")
+                    .attr("d", geo_gen)
+                    .attr("fill","white")
+                    .on("mouseenter", (m, d) => {
+                        tooltip.transition()
+                            .duration(200)
+                            .style("opacity", .9)
+                        tooltip.html("Country: " + d.properties.ADMIN +
+                            "<br>" + "Total Medals: " + olymp.get(d.properties.ISO_A3)[0].medal)
+                            .style("left", m.clientX + "px")
+                            .style("top", m.clientY + "px");
+                    })
+                    .on("mousemove", (m, d) => {
+                        tooltip.style("opacity", .9)
+                    })
+                    .on("mouseout", (m, d) => {
+                        tooltip.transition()
+                            .duration(200)
+                            .style("opacity", 0)
+                    })
+                    .transition()
+                    .delay(function (d,i){return i*4})
+                    .duration(1200)
+                    .style("fill", function (d) {
+                        try {
+                            // //console.log(olymp.get(d.properties.ISO_A3).medal);
+                            // d.medal = olymp.get(d.properties.ISO_A3)[0].medal || 0;
+                            // return colorScale(d.medal);
+
+                            return colorScale(parseInt(olymp.get(d.properties.ISO_A3)[0].medal));
+                        }
+                        catch(error) {
+                            return "whitesmoke";
+                        }
+                    })
+
+            //--------zooming---------//
+            svg.call(d3.zoom()
+                .extent([[0,0],[1000,800]])
+                .scaleExtent([1,8])
+                .on("zoom", zoomed)
+            )
+
+            function zoomed({transform}) {
+                mapCanvas.attr("transform", transform)
+            }
+
+            }
+
+        </script>
+    </body>
+</html>
