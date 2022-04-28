@@ -5,7 +5,6 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Geo-Spatial Visualization</title>
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -31,8 +30,8 @@
                 font-family: 'Lato', sans-serif;
             }
             .navbar ul{
-                margin: 0;
-                padding: 0;
+                margin:0;
+                padding:0;
                 list-style:none;
                 line-height: 35px;
                 color: black;
@@ -191,7 +190,7 @@
 
         <h6 style="text-align: center;">Select the range of year to filter the data:</h6>
         <div style="text-align: center;">
-         
+            
             <button class="button-9" onclick="location.href='geo_spat_1960-80.html'">1960-1980</button>
             <button class="button-9" onclick="location.href='geo_spat_1984-00.html'">1984-2000</button>
             <button class="button-9" onclick="location.href='geo_spat_2002-16.html'">2002-2016</button>
@@ -199,6 +198,7 @@
 
         </div>
 
+        <h3 style="text-align: center;">Medal Tally for 1984-2000 Years Olympic Games</h3>
         <div id="container">
             <svg id="canvas" viewBox="0 0 1600 800">
 
@@ -209,13 +209,14 @@
 
         <script>
 
-            /******************* over the years countries choropleth ************************/
+            /******************* 1984-00 choropleth ************************/
 
             let svg = d3.select('svg');
 
             // loading the sources
-            let medal_data = "data/medals.csv";
+            let medal_data = "data/1984-2000.csv";
             let geojson = "data/countries.geojson";
+
 
             let projection = d3.geoPatterson()
                                 .scale(220)
@@ -247,7 +248,7 @@
                 let colorscheme = d3.schemeReds[6];
                 colorscheme.unshift("#eee");
                 let colorScale = d3.scaleThreshold()
-                    .domain([1,101, 801, 3001, 7001, 10001])
+                    .domain([1,201, 501, 801, 1201, 2001])
                     .range(colorscheme);
 
 
@@ -260,7 +261,7 @@
                     .attr("x", 0)
                     .attr("y", -6)
                     .text("Medals");
-                var labels = ['0', '1-100', '101-1000', '1001-6000', '6001-8000', '8001-10000', '> 10000'];
+                var labels = ['0', '1-200', '201-500', '501-800', '801-1200', '1201-2000', '> 2000'];
                 var legend = d3.legendColor()
                     .labels(function (d) { return labels[d.i]; })
                     .shapePadding(4)
