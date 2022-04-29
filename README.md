@@ -10,8 +10,8 @@ Click on the link below: <br>
 <a href="https://rohang2504.github.io/DV_omnino/index.html">Visualizing Olympics Performance</a>
 
 <h2>Screenshots of the visualizations:</h2>
-<a href="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/geo_spa.png"></a><br>
-<img src="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/geo_spa.png" alt="Alt text" title="Geospatial Plot">
-<a href="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/sport.png"></a><br>
-<a href="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/scatter.png"></a><br>
+<!-- <a href="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/geo_spa.png"></a><br> -->
+<img src="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/geo_spa.png" alt="Geospatial Plot" title="Geospatial Plot">
+<!-- <a href="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/sport.png"></a><br>
+<a href="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/scatter.png"></a><br> -->
 
