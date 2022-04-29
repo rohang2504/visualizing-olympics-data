@@ -14,4 +14,5 @@ Click on the link below: <br>
 <img src="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/geo_spa.png" alt="Geospatial Plot" title="Geospatial Plot">
 <!-- <a href="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/sport.png"></a><br>
 <a href="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/scatter.png"></a><br> -->
-
+<img src="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/sport.png" alt="Tornado Chart" title="Tornado Chart">
+<img src="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/scatter.png" alt="Scatter Plot" title="Scatter Plot">
