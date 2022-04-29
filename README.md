@@ -11,6 +11,7 @@ Click on the link below: <br>
 
 <h2>Screenshots of the visualizations:</h2>
 <a href="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/geo_spa.png"></a><br>
-![plot](http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/geo_spa.png)
+<img src="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/geo_spa.png" alt="Alt text" title="Geospatial Plot">
 <a href="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/sport.png"></a><br>
 <a href="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/scatter.png"></a><br>
+
