@@ -7,7 +7,7 @@
 
 <h2>How to access the framework:</h2>
 Click on the link below: <br>
-<a href="https://rohang2504.github.io/DV_omnino/index.html">Visualizing Olympics Performance</a>
+<a href="[https://rohang2504.github.io/DV_omnino/index.html](https://rohang2504.github.io/visualizing-olympics-data/index.html)">Visualizing Olympics Performance</a>
 
 <h2>Screenshots of the visualizations:</h2>
 <!-- <a href="http://github.com/rohang2504/DV_omnino/blob/main/data/imgs/geo_spa.png"></a><br> -->
